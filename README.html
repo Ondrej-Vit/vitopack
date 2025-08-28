@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style type="text/css">
+@font-face {
+font-family: octicons-link;
+src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+body {
+-webkit-text-size-adjust: 100%;
+text-size-adjust: 100%;
+color: #333;
+font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+font-size: 16px;
+line-height: 1.6;
+word-wrap: break-word;
+}
+a {
+background-color: transparent;
+}
+a:active,
+a:hover {
+outline: 0;
+}
+strong {
+font-weight: bold;
+}
+h1 {
+font-size: 2em;
+margin: 0.67em 0;
+}
+img {
+border: 0;
+}
+hr {
+box-sizing: content-box;
+height: 0;
+}
+pre {
+overflow: auto;
+}
+code,
+kbd,
+pre {
+font-family: monospace, monospace;
+font-size: 1em;
+}
+input {
+color: inherit;
+font: inherit;
+margin: 0;
+}
+html input[disabled] {
+cursor: default;
+}
+input {
+line-height: normal;
+}
+input[type="checkbox"] {
+box-sizing: border-box;
+padding: 0;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+td,
+th {
+padding: 0;
+}
+* {
+box-sizing: border-box;
+}
+input {
+font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+a {
+color: #4078c0;
+text-decoration: none;
+}
+a:hover,
+a:active {
+text-decoration: underline;
+}
+hr {
+height: 0;
+margin: 15px 0;
+overflow: hidden;
+background: transparent;
+border: 0;
+border-bottom: 1px solid #ddd;
+}
+hr:before {
+display: table;
+content: "";
+}
+hr:after {
+display: table;
+clear: both;
+content: "";
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 15px;
+margin-bottom: 15px;
+line-height: 1.1;
+}
+h1 {
+font-size: 30px;
+}
+h2 {
+font-size: 21px;
+}
+h3 {
+font-size: 16px;
+}
+h4 {
+font-size: 14px;
+}
+h5 {
+font-size: 12px;
+}
+h6 {
+font-size: 11px;
+}
+blockquote {
+margin: 0;
+}
+ul,
+ol {
+padding: 0;
+margin-top: 0;
+margin-bottom: 0;
+}
+ol ol,
+ul ol {
+list-style-type: lower-roman;
+}
+ul ul ol,
+ul ol ol,
+ol ul ol,
+ol ol ol {
+list-style-type: lower-alpha;
+}
+dd {
+margin-left: 0;
+}
+code {
+font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+font-size: 12px;
+}
+pre {
+margin-top: 0;
+margin-bottom: 0;
+font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+.select::-ms-expand {
+opacity: 0;
+}
+.octicon {
+font: normal normal normal 16px/1 octicons-link;
+display: inline-block;
+text-decoration: none;
+text-rendering: auto;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+.octicon-link:before {
+content: '\f05c';
+}
+.markdown-body:before {
+display: table;
+content: "";
+}
+.markdown-body:after {
+display: table;
+clear: both;
+content: "";
+}
+.markdown-body>*:first-child {
+margin-top: 0 !important;
+}
+.markdown-body>*:last-child {
+margin-bottom: 0 !important;
+}
+a:not([href]) {
+color: inherit;
+text-decoration: none;
+}
+.anchor {
+display: inline-block;
+padding-right: 2px;
+margin-left: -18px;
+}
+.anchor:focus {
+outline: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 1em;
+margin-bottom: 16px;
+font-weight: bold;
+line-height: 1.4;
+}
+h1 .octicon-link,
+h2 .octicon-link,
+h3 .octicon-link,
+h4 .octicon-link,
+h5 .octicon-link,
+h6 .octicon-link {
+color: #000;
+vertical-align: middle;
+visibility: hidden;
+}
+h1:hover .anchor,
+h2:hover .anchor,
+h3:hover .anchor,
+h4:hover .anchor,
+h5:hover .anchor,
+h6:hover .anchor {
+text-decoration: none;
+}
+h1:hover .anchor .octicon-link,
+h2:hover .anchor .octicon-link,
+h3:hover .anchor .octicon-link,
+h4:hover .anchor .octicon-link,
+h5:hover .anchor .octicon-link,
+h6:hover .anchor .octicon-link {
+visibility: visible;
+}
+h1 {
+padding-bottom: 0.3em;
+font-size: 2.25em;
+line-height: 1.2;
+border-bottom: 1px solid #eee;
+}
+h1 .anchor {
+line-height: 1;
+}
+h2 {
+padding-bottom: 0.3em;
+font-size: 1.75em;
+line-height: 1.225;
+border-bottom: 1px solid #eee;
+}
+h2 .anchor {
+line-height: 1;
+}
+h3 {
+font-size: 1.5em;
+line-height: 1.43;
+}
+h3 .anchor {
+line-height: 1.2;
+}
+h4 {
+font-size: 1.25em;
+}
+h4 .anchor {
+line-height: 1.2;
+}
+h5 {
+font-size: 1em;
+}
+h5 .anchor {
+line-height: 1.1;
+}
+h6 {
+font-size: 1em;
+color: #777;
+}
+h6 .anchor {
+line-height: 1.1;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table,
+pre {
+margin-top: 0;
+margin-bottom: 16px;
+}
+hr {
+height: 4px;
+padding: 0;
+margin: 16px 0;
+background-color: #e7e7e7;
+border: 0 none;
+}
+ul,
+ol {
+padding-left: 2em;
+}
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+margin-top: 0;
+margin-bottom: 0;
+}
+li>p {
+margin-top: 16px;
+}
+dl {
+padding: 0;
+}
+dl dt {
+padding: 0;
+margin-top: 16px;
+font-size: 1em;
+font-style: italic;
+font-weight: bold;
+}
+dl dd {
+padding: 0 16px;
+margin-bottom: 16px;
+}
+blockquote {
+padding: 0 15px;
+color: #777;
+border-left: 4px solid #ddd;
+}
+blockquote>:first-child {
+margin-top: 0;
+}
+blockquote>:last-child {
+margin-bottom: 0;
+}
+table {
+display: block;
+width: 100%;
+overflow: auto;
+word-break: normal;
+word-break: keep-all;
+}
+table th {
+font-weight: bold;
+}
+table th,
+table td {
+padding: 6px 13px;
+border: 1px solid #ddd;
+}
+table tr {
+background-color: #fff;
+border-top: 1px solid #ccc;
+}
+table tr:nth-child(2n) {
+background-color: #f8f8f8;
+}
+img {
+max-width: 100%;
+box-sizing: content-box;
+background-color: #fff;
+}
+code {
+padding: 0;
+padding-top: 0.2em;
+padding-bottom: 0.2em;
+margin: 0;
+font-size: 85%;
+background-color: rgba(0,0,0,0.04);
+border-radius: 3px;
+}
+code:before,
+code:after {
+letter-spacing: -0.2em;
+content: "\00a0";
+}
+pre>code {
+padding: 0;
+margin: 0;
+font-size: 100%;
+word-break: normal;
+white-space: pre;
+background: transparent;
+border: 0;
+}
+.highlight {
+margin-bottom: 16px;
+}
+.highlight pre,
+pre {
+padding: 16px;
+overflow: auto;
+font-size: 85%;
+line-height: 1.45;
+background-color: #f7f7f7;
+border-radius: 3px;
+}
+.highlight pre {
+margin-bottom: 0;
+word-break: normal;
+}
+pre {
+word-wrap: normal;
+}
+pre code {
+display: inline;
+max-width: initial;
+padding: 0;
+margin: 0;
+overflow: initial;
+line-height: inherit;
+word-wrap: normal;
+background-color: transparent;
+border: 0;
+}
+pre code:before,
+pre code:after {
+content: normal;
+}
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font-size: 11px;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+.pl-c {
+color: #969896;
+}
+.pl-c1,
+.pl-s .pl-v {
+color: #0086b3;
+}
+.pl-e,
+.pl-en {
+color: #795da3;
+}
+.pl-s .pl-s1,
+.pl-smi {
+color: #333;
+}
+.pl-ent {
+color: #63a35c;
+}
+.pl-k {
+color: #a71d5d;
+}
+.pl-pds,
+.pl-s,
+.pl-s .pl-pse .pl-s1,
+.pl-sr,
+.pl-sr .pl-cce,
+.pl-sr .pl-sra,
+.pl-sr .pl-sre {
+color: #183691;
+}
+.pl-v {
+color: #ed6a43;
+}
+.pl-id {
+color: #b52a1d;
+}
+.pl-ii {
+background-color: #b52a1d;
+color: #f8f8f8;
+}
+.pl-sr .pl-cce {
+color: #63a35c;
+font-weight: bold;
+}
+.pl-ml {
+color: #693a17;
+}
+.pl-mh,
+.pl-mh .pl-en,
+.pl-ms {
+color: #1d3e81;
+font-weight: bold;
+}
+.pl-mq {
+color: #008080;
+}
+.pl-mi {
+color: #333;
+font-style: italic;
+}
+.pl-mb {
+color: #333;
+font-weight: bold;
+}
+.pl-md {
+background-color: #ffecec;
+color: #bd2c00;
+}
+.pl-mi1 {
+background-color: #eaffea;
+color: #55a532;
+}
+.pl-mdr {
+color: #795da3;
+font-weight: bold;
+}
+.pl-mo {
+color: #1d3e81;
+}
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+.task-list-item {
+list-style-type: none;
+}
+.task-list-item+.task-list-item {
+margin-top: 3px;
+}
+.task-list-item input {
+margin: 0 0.35em 0.25em -1.6em;
+vertical-align: middle;
+}
+:checked+.radio-label {
+z-index: 1;
+position: relative;
+border-color: #4078c0;
+}
+.sourceLine {
+display: inline-block;
+}
+code .kw { color: #000000; }
+code .dt { color: #ed6a43; }
+code .dv { color: #009999; }
+code .bn { color: #009999; }
+code .fl { color: #009999; }
+code .ch { color: #009999; }
+code .st { color: #183691; }
+code .co { color: #969896; }
+code .ot { color: #0086b3; }
+code .al { color: #a61717; }
+code .fu { color: #63a35c; }
+code .er { color: #a61717; background-color: #e3d2d2; }
+code .wa { color: #000000; }
+code .cn { color: #008080; }
+code .sc { color: #008080; }
+code .vs { color: #183691; }
+code .ss { color: #183691; }
+code .im { color: #000000; }
+code .va {color: #008080; }
+code .cf { color: #000000; }
+code .op { color: #000000; }
+code .bu { color: #000000; }
+code .ex { color: #000000; }
+code .pp { color: #999999; }
+code .at { color: #008080; }
+code .do { color: #969896; }
+code .an { color: #008080; }
+code .cv { color: #008080; }
+code .in { color: #008080; }
+</style>
+<style>
+body {
+box-sizing: border-box;
+min-width: 200px;
+max-width: 980px;
+margin: 0 auto;
+padding: 45px;
+padding-top: 0px;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+<h1 id="vitopack">vitopack</h1>
+<p><a href="https://github.com/Ondrej-Vit/vitopack/actions/workflows/R-CMD-check.yaml"><img role="img" aria-label="R-CMD-check" src="data:image/svg+xml; charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxODIiIGhlaWdodD0iMjAiPgogIDx0aXRsZT5SLUNNRC1jaGVjay55YW1sIC0gcGFzc2luZzwvdGl0bGU+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9IndvcmtmbG93LWZpbGwiIHgxPSI1MCUiIHkxPSIwJSIgeDI9IjUwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjNDQ0RDU2IiBvZmZzZXQ9IjAlIj48L3N0b3A+CiAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiMyNDI5MkUiIG9mZnNldD0iMTAwJSI+PC9zdG9wPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ic3RhdGUtZmlsbCIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiMzNEQwNTgiIG9mZnNldD0iMCUiPjwvc3RvcD4KICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iIzI4QTc0NSIgb2Zmc2V0PSIxMDAlIj48L3N0b3A+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgPGcgZm9udC1mYW1pbHk9IiYjMzk7RGVqYVZ1IFNhbnMmIzM5OyxWZXJkYW5hLEdlbmV2YSxzYW5zLXNlcmlmIiBmb250LXNpemU9IjExIj4KICAgICAgPHBhdGggaWQ9IndvcmtmbG93LWJnIiBkPSJNMCwzIEMwLDEuMzQzMSAxLjM1NTIsMCAzLjAyNzAyNzAzLDAgTDEzMiwwIEwxMzIsMjAgTDMuMDI3MDI3MDMsMjAgQzEuMzU1MiwyMCAwLDE4LjY1NjkgMCwxNyBMMCwzIFoiIGZpbGw9InVybCgjd29ya2Zsb3ctZmlsbCkiIGZpbGwtcnVsZT0ibm9uemVybyI+PC9wYXRoPgogICAgICA8dGV4dCBmaWxsPSIjMDEwMTAxIiBmaWxsLW9wYWNpdHk9Ii4zIj4KICAgICAgICA8dHNwYW4geD0iMjIuMTk4MTk4MiIgeT0iMTUiIGFyaWEtaGlkZGVuPSJ0cnVlIj5SLUNNRC1jaGVjay55YW1sPC90c3Bhbj4KICAgICAgPC90ZXh0PgogICAgICA8dGV4dCBmaWxsPSIjRkZGRkZGIj4KICAgICAgICA8dHNwYW4geD0iMjIuMTk4MTk4MiIgeT0iMTQiPlItQ01ELWNoZWNrLnlhbWw8L3RzcGFuPgogICAgICA8L3RleHQ+CiAgICA8L2c+CiAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMzIpIiBmb250LWZhbWlseT0iJiMzOTtEZWphVnUgU2FucyYjMzk7LFZlcmRhbmEsR2VuZXZhLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTEiPgogICAgICA8cGF0aCBkPSJNMCAwaDQ2LjkzOUM0OC42MjkgMCA1MCAxLjM0MyA1MCAzdjE0YzAgMS42NTctMS4zNyAzLTMuMDYxIDNIMFYweiIgaWQ9InN0YXRlLWJnIiBmaWxsPSJ1cmwoI3N0YXRlLWZpbGwpIiBmaWxsLXJ1bGU9Im5vbnplcm8iPjwvcGF0aD4KICAgICAgPHRleHQgZmlsbD0iIzAxMDEwMSIgZmlsbC1vcGFjaXR5PSIuMyIgYXJpYS1oaWRkZW49InRydWUiPgogICAgICAgIDx0c3BhbiB4PSI0IiB5PSIxNSI+cGFzc2luZzwvdHNwYW4+CiAgICAgIDwvdGV4dD4KICAgICAgPHRleHQgZmlsbD0iI0ZGRkZGRiI+CiAgICAgICAgPHRzcGFuIHg9IjQiIHk9IjE0Ij5wYXNzaW5nPC90c3Bhbj4KICAgICAgPC90ZXh0PgogICAgPC9nPgogICAgPHBhdGggZmlsbD0iIzk1OURBNSIgZD0iTTExIDNjLTMuODY4IDAtNyAzLjEzMi03IDdhNi45OTYgNi45OTYgMCAwIDAgNC43ODYgNi42NDFjLjM1LjA2Mi40ODItLjE0OC40ODItLjMzMiAwLS4xNjYtLjAxLS43MTgtLjAxLTEuMzA0LTEuNzU4LjMyNC0yLjIxMy0uNDI5LTIuMzUzLS44MjItLjA3OS0uMjAyLS40Mi0uODIzLS43MTctLjk5LS4yNDUtLjEzLS41OTUtLjQ1NC0uMDEtLjQ2My41NTItLjAwOS45NDYuNTA4IDEuMDc3LjcxOC42MyAxLjA1OCAxLjYzNi43NiAyLjAzOS41NzcuMDYxLS40NTUuMjQ1LS43NjEuNDQ2LS45MzYtMS41NTctLjE3NS0zLjE4NS0uNzc5LTMuMTg1LTMuNDU2IDAtLjc2Mi4yNzEtMS4zOTIuNzE4LTEuODgyLS4wNy0uMTc1LS4zMTUtLjg5Mi4wNy0xLjg1NSAwIDAgLjU4Ni0uMTgzIDEuOTI1LjcxOGE2LjUgNi41IDAgMCAxIDEuNzUtLjIzNiA2LjUgNi41IDAgMCAxIDEuNzUuMjM2YzEuMzM4LS45MSAxLjkyNS0uNzE4IDEuOTI1LS43MTguMzg1Ljk2My4xNCAxLjY4LjA3IDEuODU1LjQ0Ni40OS43MTcgMS4xMTIuNzE3IDEuODgyIDAgMi42ODYtMS42MzYgMy4yOC0zLjE5NCAzLjQ1Ni4yNTQuMjE5LjQ3My42MzkuNDczIDEuMjk1IDAgLjkzNi0uMDA5IDEuNjg5LS4wMDkgMS45MjUgMCAuMTg0LjEzMS40MDIuNDgxLjMzMkE3LjAxMSA3LjAxMSAwIDAgMCAxOCAxMGMwLTMuODY3LTMuMTMzLTctNy03eiI+PC9wYXRoPgogIDwvZz4KPC9zdmc+Cgo=" alt="R-CMD-check" /></a> <a href="https://ondrej-vit.github.io/vitopack/"><img role="img" aria-label="pkgdown" src="data:image/svg+xml; charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNTciIGhlaWdodD0iMjAiPgogIDx0aXRsZT5wa2dkb3duLnlhbWwgLSBwYXNzaW5nPC90aXRsZT4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0id29ya2Zsb3ctZmlsbCIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiM0NDRENTYiIG9mZnNldD0iMCUiPjwvc3RvcD4KICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iIzI0MjkyRSIgb2Zmc2V0PSIxMDAlIj48L3N0b3A+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJzdGF0ZS1maWxsIiB4MT0iNTAlIiB5MT0iMCUiIHgyPSI1MCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iIzM0RDA1OCIgb2Zmc2V0PSIwJSI+PC9zdG9wPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjMjhBNzQ1IiBvZmZzZXQ9IjEwMCUiPjwvc3RvcD4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICA8ZyBmb250LWZhbWlseT0iJiMzOTtEZWphVnUgU2FucyYjMzk7LFZlcmRhbmEsR2VuZXZhLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTEiPgogICAgICA8cGF0aCBpZD0id29ya2Zsb3ctYmciIGQ9Ik0wLDMgQzAsMS4zNDMxIDEuMzU1MiwwIDMuMDI3MDI3MDMsMCBMMTA3LDAgTDEwNywyMCBMMy4wMjcwMjcwMywyMCBDMS4zNTUyLDIwIDAsMTguNjU2OSAwLDE3IEwwLDMgWiIgZmlsbD0idXJsKCN3b3JrZmxvdy1maWxsKSIgZmlsbC1ydWxlPSJub256ZXJvIj48L3BhdGg+CiAgICAgIDx0ZXh0IGZpbGw9IiMwMTAxMDEiIGZpbGwtb3BhY2l0eT0iLjMiPgogICAgICAgIDx0c3BhbiB4PSIyMi4xOTgxOTgyIiB5PSIxNSIgYXJpYS1oaWRkZW49InRydWUiPnBrZ2Rvd24ueWFtbDwvdHNwYW4+CiAgICAgIDwvdGV4dD4KICAgICAgPHRleHQgZmlsbD0iI0ZGRkZGRiI+CiAgICAgICAgPHRzcGFuIHg9IjIyLjE5ODE5ODIiIHk9IjE0Ij5wa2dkb3duLnlhbWw8L3RzcGFuPgogICAgICA8L3RleHQ+CiAgICA8L2c+CiAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMDcpIiBmb250LWZhbWlseT0iJiMzOTtEZWphVnUgU2FucyYjMzk7LFZlcmRhbmEsR2VuZXZhLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTEiPgogICAgICA8cGF0aCBkPSJNMCAwaDQ2LjkzOUM0OC42MjkgMCA1MCAxLjM0MyA1MCAzdjE0YzAgMS42NTctMS4zNyAzLTMuMDYxIDNIMFYweiIgaWQ9InN0YXRlLWJnIiBmaWxsPSJ1cmwoI3N0YXRlLWZpbGwpIiBmaWxsLXJ1bGU9Im5vbnplcm8iPjwvcGF0aD4KICAgICAgPHRleHQgZmlsbD0iIzAxMDEwMSIgZmlsbC1vcGFjaXR5PSIuMyIgYXJpYS1oaWRkZW49InRydWUiPgogICAgICAgIDx0c3BhbiB4PSI0IiB5PSIxNSI+cGFzc2luZzwvdHNwYW4+CiAgICAgIDwvdGV4dD4KICAgICAgPHRleHQgZmlsbD0iI0ZGRkZGRiI+CiAgICAgICAgPHRzcGFuIHg9IjQiIHk9IjE0Ij5wYXNzaW5nPC90c3Bhbj4KICAgICAgPC90ZXh0PgogICAgPC9nPgogICAgPHBhdGggZmlsbD0iIzk1OURBNSIgZD0iTTExIDNjLTMuODY4IDAtNyAzLjEzMi03IDdhNi45OTYgNi45OTYgMCAwIDAgNC43ODYgNi42NDFjLjM1LjA2Mi40ODItLjE0OC40ODItLjMzMiAwLS4xNjYtLjAxLS43MTgtLjAxLTEuMzA0LTEuNzU4LjMyNC0yLjIxMy0uNDI5LTIuMzUzLS44MjItLjA3OS0uMjAyLS40Mi0uODIzLS43MTctLjk5LS4yNDUtLjEzLS41OTUtLjQ1NC0uMDEtLjQ2My41NTItLjAwOS45NDYuNTA4IDEuMDc3LjcxOC42MyAxLjA1OCAxLjYzNi43NiAyLjAzOS41NzcuMDYxLS40NTUuMjQ1LS43NjEuNDQ2LS45MzYtMS41NTctLjE3NS0zLjE4NS0uNzc5LTMuMTg1LTMuNDU2IDAtLjc2Mi4yNzEtMS4zOTIuNzE4LTEuODgyLS4wNy0uMTc1LS4zMTUtLjg5Mi4wNy0xLjg1NSAwIDAgLjU4Ni0uMTgzIDEuOTI1LjcxOGE2LjUgNi41IDAgMCAxIDEuNzUtLjIzNiA2LjUgNi41IDAgMCAxIDEuNzUuMjM2YzEuMzM4LS45MSAxLjkyNS0uNzE4IDEuOTI1LS43MTguMzg1Ljk2My4xNCAxLjY4LjA3IDEuODU1LjQ0Ni40OS43MTcgMS4xMTIuNzE3IDEuODgyIDAgMi42ODYtMS42MzYgMy4yOC0zLjE5NCAzLjQ1Ni4yNTQuMjE5LjQ3My42MzkuNDczIDEuMjk1IDAgLjkzNi0uMDA5IDEuNjg5LS4wMDkgMS45MjUgMCAuMTg0LjEzMS40MDIuNDgxLjMzMkE3LjAxMSA3LjAxMSAwIDAgMCAxOCAxMGMwLTMuODY3LTMuMTMzLTctNy03eiI+PC9wYXRoPgogIDwvZz4KPC9zdmc+Cgo=" alt="pkgdown" /></a></p>
+<!-- badges: end -->
+
+<p>Utilities for actuarial <strong>run-off triangles</strong> and
+<strong>Chain-Ladder (CH-L)</strong> workflows: creation of triangles
+from long data, cumulative/de-cumulative transforms, CH-L factors (link
+ratios), averaged factors, products (ultimate multipliers) and simple
+visualizations.</p>
+<ul>
+<li>Website: <a href="https://ondrej-vit.github.io/vitopack/">https://ondrej-vit.github.io/vitopack/</a></li>
+<li>Bug reports: <a href="https://github.com/Ondrej-Vit/vitopack/issues">https://github.com/Ondrej-Vit/vitopack/issues</a></li>
+</ul>
+<h2 id="installation">Installation</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co"># install.packages(&quot;pak&quot;)</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>pak<span class="sc">::</span><span class="fu">pak</span>(<span class="st">&quot;Ondrej-Vit/vitopack&quot;</span>)</span></code></pre></div>
+<h2 id="quick-start">Quick start</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">library</span>(vitopack)</span></code></pre></div>
+<h3 id="id_1-build-a-triangle-from-long-data">1) Build a triangle from
+long data</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>  <span class="at">accident =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>),</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>  <span class="at">dev      =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>),</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>  <span class="at">value    =</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>,<span class="dv">50</span>,<span class="dv">60</span>,<span class="dv">60</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>)</span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>tri <span class="ot">&lt;-</span> <span class="fu">create_triangle</span>(df, <span class="st">&quot;accident&quot;</span>, <span class="st">&quot;dev&quot;</span>, <span class="st">&quot;value&quot;</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>tri</span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="co">#&gt; [1,]   70   20   30</span></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="co">#&gt; [2,]   40   50   NA</span></span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="co">#&gt; [3,]   60   NA   NA</span></span></code></pre></div>
+<h3 id="id_2-cumulative--de-cumulative-transforms">2) Cumulative /
+de-cumulative transforms</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>cum_tri   <span class="ot">&lt;-</span> <span class="fu">create_cumulative_triangle</span>(tri)</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>decum_tri <span class="ot">&lt;-</span> <span class="fu">create_decumulative_triangle</span>(cum_tri)</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">identical</span>(tri, decum_tri))  <span class="co"># sanity check</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>cum_tri</span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="co">#&gt; [1,]   70   90  120</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co">#&gt; [2,]   40   90   NA</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="co">#&gt; [3,]   60   NA   NA</span></span></code></pre></div>
+<h3 id="id_3-chain-ladder-factors-link-ratios">3) Chain-Ladder factors
+(link ratios)</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>chl_triangle <span class="ot">&lt;-</span> <span class="fu">create_chl_coef_triangle</span>(cum_tri)</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>chl_coefs    <span class="ot">&lt;-</span> <span class="fu">create_chl_coefs</span>(cum_tri, <span class="at">chl_length =</span> <span class="fu">c</span>(<span class="st">&quot;full&quot;</span>, <span class="dv">2</span>))</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>chl_coefs</span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="co">#&gt;          CH_L_lengths  0        1        2</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="co">#&gt; 1 chain_ladder - full NA 1.636364 1.333333</span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="co">#&gt; 2    chain_ladder - 2 NA 1.636364 1.333333</span></span></code></pre></div>
+<h3 id="id_4-ultimate-multipliers-products-over-ages">4) Ultimate
+multipliers (products over ages)</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co"># Take the &quot;full&quot; row from create_chl_coefs() and compute products</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>full_row <span class="ot">&lt;-</span> chl_coefs[chl_coefs<span class="sc">$</span>CH_L_lengths <span class="sc">==</span> <span class="st">&quot;chain_ladder - full&quot;</span>, <span class="sc">-</span><span class="dv">1</span>, drop <span class="ot">=</span> <span class="cn">FALSE</span>]</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>ultimate <span class="ot">&lt;-</span> <span class="fu">create_product_coefs</span>(full_row, <span class="at">name =</span> <span class="st">&quot;Ultimate&quot;</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>ultimate</span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Ultimate&quot;         NA                 &quot;1.33333333333333&quot;</span></span></code></pre></div>
+<h3 id="id_5-naming--simple-visualization">5) Naming &amp; simple
+visualization</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="co"># Name rows/columns for readability</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>named <span class="ot">&lt;-</span> <span class="fu">triangle_namer</span>(chl_triangle, <span class="at">claim_period_names =</span> <span class="fu">paste0</span>(<span class="st">&quot;Y&quot;</span>, <span class="fu">seq_len</span>(<span class="fu">nrow</span>(chl_triangle))))</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="co"># Minimal static visualization (friendly to GitHub/CRAN)</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>ages_to_plot <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>)  <span class="co"># development ages (columns) to plot</span></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a><span class="fu">matplot</span>(</span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">seq_len</span>(<span class="fu">nrow</span>(named)),</span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">cbind</span>(named[, ages_to_plot[<span class="dv">1</span>]], named[, ages_to_plot[<span class="dv">2</span>]]),</span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">&quot;b&quot;</span>, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">lty =</span> <span class="dv">1</span>,</span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Origin period (row index)&quot;</span>,</span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">&quot;CH-L factor&quot;</span>,</span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">&quot;CH-L factors by development age&quot;</span>,</span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a>  <span class="at">ylim =</span> <span class="fu">range</span>(named[, ages_to_plot], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a>)</span>
+<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;bottomright&quot;</span>,</span>
+<span id="cb7-16"><a href="#cb7-16" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">paste</span>(<span class="st">&quot;Age&quot;</span>, ages_to_plot <span class="sc">-</span> <span class="dv">1</span>),</span>
+<span id="cb7-17"><a href="#cb7-17" tabindex="-1"></a>       <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>)</span></code></pre></div>
+<div class="figure">
+
+<img role="img" aria-label="Line chart of Chain-Ladder factors by development age for two selected ages on a toy triangle." src="data:image/png;base64,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" alt="Line chart of Chain-Ladder factors by development age for two selected ages on a toy triangle." width="100%" />
+<p class="caption">
+Average CH-L factors by development age (toy example).
+</p>
+
+</div>
+
+<blockquote>
+<p>For interactive Plotly charts, see:
+<code>create_chl_trg_visualization()</code> and
+<code>create_chl_trg_visualization_pvzp()</code>. In README, prefer
+static plots for GitHub rendering.</p>
+</blockquote>
+<h2 id="main-functions">Main functions</h2>
+<ul>
+<li><strong>Triangle utilities:</strong> <code>create_triangle()</code>,
+<code>create_cumulative_triangle()</code>,
+<code>create_decumulative_triangle()</code>,
+<code>triangle_namer()</code>, <code>diag_reader()</code>,
+<code>diag_writer()</code>, <code>diag_sums()</code>.</li>
+<li><strong>CH-L workflow:</strong>
+<code>create_chl_coef_triangle()</code>,
+<code>create_chl_coefs()</code>, <code>create_avg_coefs()</code>,
+<code>create_product_coefs()</code>.</li>
+<li><strong>Visualization:</strong>
+<code>create_chl_trg_visualization()</code>,
+<code>create_chl_trg_visualization_pvzp()</code>.</li>
+</ul>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Conventions: diagonal numbering uses <strong>1 = shortest</strong>,
+<strong>n = main</strong> (documented in
+<code>diag_reader()</code>).</li>
+<li>Examples use toy data; real-world usage typically works with
+monthly/quarterly origin &amp; development periods.</li>
+</ul>
+<!-- -->
+
+</body>
+</html>

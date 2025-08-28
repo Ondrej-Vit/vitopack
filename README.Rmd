@@ -1,0 +1,134 @@
+---
+output: github_document
+---
+```{r load-vitopack, include=FALSE}
+# Preferuj vývojovou verzi z pracovního adresáře, ne instalovanou
+suppressWarnings({
+  if ("vitopack" %in% loadedNamespaces()) try(unloadNamespace("vitopack"), silent = TRUE)
+})
+if (requireNamespace("devtools", quietly = TRUE)) {
+  devtools::load_all(".")  # načte lokální zdrojový kód balíčku
+} else {
+  stop("Pro render README nainstaluj si prosím balíček 'devtools'.")
+}
+```
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# vitopack
+
+
+[![R-CMD-check](https://github.com/Ondrej-Vit/vitopack/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Ondrej-Vit/vitopack/actions/workflows/R-CMD-check.yaml)
+[![pkgdown](https://github.com/Ondrej-Vit/vitopack/actions/workflows/pkgdown.yaml/badge.svg)](https://ondrej-vit.github.io/vitopack/)
+
+<!-- badges: end -->
+
+Utilities for actuarial **run-off triangles** and **Chain-Ladder (CH-L)** workflows:
+creation of triangles from long data, cumulative/de-cumulative transforms, CH-L factors
+(link ratios), averaged factors, products (ultimate multipliers) and simple visualizations.
+
+* Website: [https://ondrej-vit.github.io/vitopack/](https://ondrej-vit.github.io/vitopack/)
+* Bug reports: [https://github.com/Ondrej-Vit/vitopack/issues](https://github.com/Ondrej-Vit/vitopack/issues)
+
+## Installation
+
+```r
+# install.packages("pak")
+pak::pak("Ondrej-Vit/vitopack")
+```
+
+## Quick start
+
+```{r setup, message=FALSE}
+library(vitopack)
+```
+
+### 1) Build a triangle from long data
+
+```{r triangle}
+df <- data.frame(
+  accident = c(1,1,1,2,2,3,1),
+  dev      = c(1,2,3,1,2,1,1),
+  value    = c(10,20,30,40,50,60,60)
+)
+
+tri <- create_triangle(df, "accident", "dev", "value")
+tri
+```
+
+### 2) Cumulative / de-cumulative transforms
+
+```{r cum-decum}
+cum_tri   <- create_cumulative_triangle(tri)
+decum_tri <- create_decumulative_triangle(cum_tri)
+
+stopifnot(identical(tri, decum_tri))  # sanity check
+cum_tri
+```
+
+### 3) Chain-Ladder factors (link ratios)
+
+```{r chl-coefs}
+chl_triangle <- create_chl_coef_triangle(cum_tri)
+chl_coefs    <- create_chl_coefs(cum_tri, chl_length = c("full", 2))
+chl_coefs
+```
+
+### 4) Ultimate multipliers (products over ages)
+
+```{r products}
+# Take the "full" row from create_chl_coefs() and compute products
+full_row <- chl_coefs[chl_coefs$CH_L_lengths == "chain_ladder - full", -1, drop = FALSE]
+ultimate <- create_product_coefs(full_row, name = "Ultimate")
+ultimate
+```
+
+### 5) Naming & simple visualization
+
+```{r viz, fig.cap="Average CH-L factors by development age (toy example).", fig.alt="Line chart of Chain-Ladder factors by development age for two selected ages on a toy triangle."}
+# Name rows/columns for readability
+named <- triangle_namer(chl_triangle, claim_period_names = paste0("Y", seq_len(nrow(chl_triangle))))
+
+# Minimal static visualization (friendly to GitHub/CRAN)
+ages_to_plot <- c(2, 3)  # development ages (columns) to plot
+matplot(
+  x = seq_len(nrow(named)),
+  y = cbind(named[, ages_to_plot[1]], named[, ages_to_plot[2]]),
+  type = "b", pch = 19, lty = 1,
+  xlab = "Origin period (row index)",
+  ylab = "CH-L factor",
+  main = "CH-L factors by development age",
+  ylim = range(named[, ages_to_plot], na.rm = TRUE)
+)
+legend("bottomright",
+       legend = paste("Age", ages_to_plot - 1),
+       lty = 1, pch = 19, bty = "n")
+```
+
+> For interactive Plotly charts, see:
+> `create_chl_trg_visualization()` and `create_chl_trg_visualization_pvzp()`.
+> In README, prefer static plots for GitHub rendering.
+
+## Main functions
+
+* **Triangle utilities:** `create_triangle()`, `create_cumulative_triangle()`, `create_decumulative_triangle()`,
+  `triangle_namer()`, `diag_reader()`, `diag_writer()`, `diag_sums()`.
+* **CH-L workflow:** `create_chl_coef_triangle()`, `create_chl_coefs()`, `create_avg_coefs()`, `create_product_coefs()`.
+* **Visualization:** `create_chl_trg_visualization()`, `create_chl_trg_visualization_pvzp()`.
+
+## Notes
+
+* Conventions: diagonal numbering uses **1 = shortest**, **n = main** (documented in `diag_reader()`).
+* Examples use toy data; real-world usage typically works with monthly/quarterly origin & development periods.
+
+```
+```

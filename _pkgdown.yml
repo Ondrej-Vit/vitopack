@@ -1,4 +1,39 @@
-url: https://ondrej-vit.github.io/vitopack/
 template:
   bootstrap: 5
 
+url: https://ondrej-vit.github.io/vitopack/
+
+navbar:
+  structure:
+    left:  [reference, news]
+    right: [search, github]
+  components:
+    github:
+      icon: fab fa-github
+      href: https://github.com/ondrej-vit/vitopack
+      aria-label: "GitHub repository"
+
+reference:
+  - title: Trojúhelníky a převody
+    contents:
+      - create_triangle
+      - create_cumulative_triangle
+      - create_decumulative_triangle
+      - create_annual_triangle
+      - create_run_off_check
+      - diag_reader
+      - diag_writer
+      - diag_sums
+      - triangle_namer
+
+  - title: Chain-Ladder koeficienty
+    contents:
+      - create_chl_coef_triangle
+      - create_chl_coefs
+      - create_product_coefs
+      - create_avg_coefs
+
+  - title: Vizualizace
+    contents:
+      - create_chl_trg_visualization
+      - create_chl_trg_visualization_pvzp

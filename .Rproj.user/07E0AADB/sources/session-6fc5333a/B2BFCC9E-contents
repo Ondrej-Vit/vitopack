@@ -3,9 +3,9 @@ library(vitopack)
 
 # Test data
 df <- data.frame(
-  accident = c(1,1,2,2,3,3),
-  dev      = c(1,2,1,2,1,2),
-  value    = c(10, 20, 30, 40, 50, 60)
+  accident = c(1,1,1,2,2,3,1),
+  dev      = c(1,2,3,1,2,1,1),
+  value    = c(10, 20, 30, 40, 50, 60, 70)
 )
 
 test_that("create_triangle works correctly", {
@@ -15,12 +15,12 @@ test_that("create_triangle works correctly", {
   expect_equal(dim(tri), c(3,3))
 
   # Check values manually
-  expect_equal(tri[1,1], 10)
+  expect_equal(tri[1,1], 80)
   expect_equal(tri[1,2], 20)
-  expect_equal(tri[2,1], 30)
-  expect_equal(tri[2,2], 40)
-  expect_equal(tri[3,1], 50)
-  expect_equal(tri[3,2], 60)
+  expect_equal(tri[1,3], 30)
+  expect_equal(tri[2,1], 40)
+  expect_equal(tri[2,2], 50)
+  expect_equal(tri[3,1], 60)
 })
 
 test_that("create_cumulative_triangle works correctly", {
