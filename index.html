@@ -37,6 +37,7 @@
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="search.json">
 </form></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/ondrej-vit/vitopack" aria-label="GitHub repository"><span class="fa fab fa-github"></span></a></li>
       </ul>
 </div>
 
@@ -44,9 +45,144 @@
   </div>
 </nav><div class="container template-home">
 <div class="row">
-  <main id="main" class="col-md-9">
-Package for actuarial triangles, cumulative/de-cumulative operations and diagonal extraction.
-  </main><aside class="col-md-3"><div class="license">
+  <main id="main" class="col-md-9"><div class="section level1">
+<div class="page-header"><h1 id="vitopack">vitopack<a class="anchor" aria-label="anchor" href="#vitopack"></a>
+</h1></div>
+<p><a href="https://github.com/Ondrej-Vit/vitopack/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/Ondrej-Vit/vitopack/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a> <a href="https://ondrej-vit.github.io/vitopack/"><img src="https://github.com/Ondrej-Vit/vitopack/actions/workflows/pkgdown.yaml/badge.svg" alt="pkgdown"></a></p>
+<!-- badges: end -->
+<p>Utilities for actuarial <strong>run-off triangles</strong> and <strong>Chain-Ladder (CH-L)</strong> workflows: creation of triangles from long data, cumulative/de-cumulative transforms, CH-L factors (link ratios), averaged factors, products (ultimate multipliers) and simple visualizations.</p>
+<ul>
+<li>Website: <a href="https://ondrej-vit.github.io/vitopack/" class="uri">https://ondrej-vit.github.io/vitopack/</a>
+</li>
+<li>Bug reports: <a href="https://github.com/Ondrej-Vit/vitopack/issues" class="external-link uri">https://github.com/Ondrej-Vit/vitopack/issues</a>
+</li>
+</ul>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># install.packages("pak")</span></span>
+<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"Ondrej-Vit/vitopack"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="quick-start">Quick start<a class="anchor" aria-label="anchor" href="#quick-start"></a>
+</h2>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://&lt;USERNAME&gt;.github.io/vitopack/" class="external-link">vitopack</a></span><span class="op">)</span></span></code></pre></div>
+<div class="section level3">
+<h3 id="id_1-build-a-triangle-from-long-data">1) Build a triangle from long data<a class="anchor" aria-label="anchor" href="#id_1-build-a-triangle-from-long-data"></a>
+</h3>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
+<span>  accident <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">1</span><span class="op">)</span>,</span>
+<span>  dev      <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>,</span>
+<span>  value    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>,<span class="fl">20</span>,<span class="fl">30</span>,<span class="fl">40</span>,<span class="fl">50</span>,<span class="fl">60</span>,<span class="fl">60</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">tri</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/create_triangle.html">create_triangle</a></span><span class="op">(</span><span class="va">df</span>, <span class="st">"accident"</span>, <span class="st">"dev"</span>, <span class="st">"value"</span><span class="op">)</span></span>
+<span><span class="va">tri</span></span>
+<span><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span><span class="co">#&gt; [1,]   70   20   30</span></span>
+<span><span class="co">#&gt; [2,]   40   50   NA</span></span>
+<span><span class="co">#&gt; [3,]   60   NA   NA</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="id_2-cumulative--de-cumulative-transforms">2) Cumulative / de-cumulative transforms<a class="anchor" aria-label="anchor" href="#id_2-cumulative--de-cumulative-transforms"></a>
+</h3>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">cum_tri</span>   <span class="op">&lt;-</span> <span class="fu"><a href="reference/create_cumulative_triangle.html">create_cumulative_triangle</a></span><span class="op">(</span><span class="va">tri</span><span class="op">)</span></span>
+<span><span class="va">decum_tri</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/create_decumulative_triangle.html">create_decumulative_triangle</a></span><span class="op">(</span><span class="va">cum_tri</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html" class="external-link">stopifnot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/identical.html" class="external-link">identical</a></span><span class="op">(</span><span class="va">tri</span>, <span class="va">decum_tri</span><span class="op">)</span><span class="op">)</span>  <span class="co"># sanity check</span></span>
+<span><span class="va">cum_tri</span></span>
+<span><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span><span class="co">#&gt; [1,]   70   90  120</span></span>
+<span><span class="co">#&gt; [2,]   40   90   NA</span></span>
+<span><span class="co">#&gt; [3,]   60   NA   NA</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="id_3-chain-ladder-factors-link-ratios">3) Chain-Ladder factors (link ratios)<a class="anchor" aria-label="anchor" href="#id_3-chain-ladder-factors-link-ratios"></a>
+</h3>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">chl_triangle</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/create_chl_coef_triangle.html">create_chl_coef_triangle</a></span><span class="op">(</span><span class="va">cum_tri</span><span class="op">)</span></span>
+<span><span class="va">chl_coefs</span>    <span class="op">&lt;-</span> <span class="fu"><a href="reference/create_chl_coefs.html">create_chl_coefs</a></span><span class="op">(</span><span class="va">cum_tri</span>, chl_length <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"full"</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">chl_coefs</span></span>
+<span><span class="co">#&gt;          CH_L_lengths  0        1        2</span></span>
+<span><span class="co">#&gt; 1 chain_ladder - full NA 1.636364 1.333333</span></span>
+<span><span class="co">#&gt; 2    chain_ladder - 2 NA 1.636364 1.333333</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="id_4-ultimate-multipliers-products-over-ages">4) Ultimate multipliers (products over ages)<a class="anchor" aria-label="anchor" href="#id_4-ultimate-multipliers-products-over-ages"></a>
+</h3>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Take the "full" row from create_chl_coefs() and compute products</span></span>
+<span><span class="va">full_row</span> <span class="op">&lt;-</span> <span class="va">chl_coefs</span><span class="op">[</span><span class="va">chl_coefs</span><span class="op">$</span><span class="va">CH_L_lengths</span> <span class="op">==</span> <span class="st">"chain_ladder - full"</span>, <span class="op">-</span><span class="fl">1</span>, drop <span class="op">=</span> <span class="cn">FALSE</span><span class="op">]</span></span>
+<span><span class="va">ultimate</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/create_product_coefs.html">create_product_coefs</a></span><span class="op">(</span><span class="va">full_row</span>, name <span class="op">=</span> <span class="st">"Ultimate"</span><span class="op">)</span></span>
+<span><span class="va">ultimate</span></span>
+<span><span class="co">#&gt; [1] "Ultimate"         NA                 "1.33333333333333"</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="id_5-naming--simple-visualization">5) Naming &amp; simple visualization<a class="anchor" aria-label="anchor" href="#id_5-naming--simple-visualization"></a>
+</h3>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Name rows/columns for readability</span></span>
+<span><span class="va">named</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/triangle_namer.html">triangle_namer</a></span><span class="op">(</span><span class="va">chl_triangle</span>, claim_period_names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Y"</span>, <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq_len</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">chl_triangle</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Minimal static visualization (friendly to GitHub/CRAN)</span></span>
+<span><span class="va">ages_to_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>  <span class="co"># development ages (columns) to plot</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/matplot.html" class="external-link">matplot</a></span><span class="op">(</span></span>
+<span>  x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq_len</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">named</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="va">named</span><span class="op">[</span>, <span class="va">ages_to_plot</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>, <span class="va">named</span><span class="op">[</span>, <span class="va">ages_to_plot</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span><span class="op">)</span>,</span>
+<span>  type <span class="op">=</span> <span class="st">"b"</span>, pch <span class="op">=</span> <span class="fl">19</span>, lty <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  xlab <span class="op">=</span> <span class="st">"Origin period (row index)"</span>,</span>
+<span>  ylab <span class="op">=</span> <span class="st">"CH-L factor"</span>,</span>
+<span>  main <span class="op">=</span> <span class="st">"CH-L factors by development age"</span>,</span>
+<span>  ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/range.html" class="external-link">range</a></span><span class="op">(</span><span class="va">named</span><span class="op">[</span>, <span class="va">ages_to_plot</span><span class="op">]</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/legend.html" class="external-link">legend</a></span><span class="op">(</span><span class="st">"bottomright"</span>,</span>
+<span>       legend <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"Age"</span>, <span class="va">ages_to_plot</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span>,</span>
+<span>       lty <span class="op">=</span> <span class="fl">1</span>, pch <span class="op">=</span> <span class="fl">19</span>, bty <span class="op">=</span> <span class="st">"n"</span><span class="op">)</span></span></code></pre></div>
+<div class="figure">
+<img src="reference/figures/README-viz-1.png" alt="Line chart of Chain-Ladder factors by development age for two selected ages on a toy triangle." width="100%"><p class="caption">
+Average CH-L factors by development age (toy example).
+</p>
+</div>
+<blockquote>
+<p>For interactive Plotly charts, see: <code><a href="reference/create_chl_trg_visualization.html">create_chl_trg_visualization()</a></code> and <code><a href="reference/create_chl_trg_visualization_pvzp.html">create_chl_trg_visualization_pvzp()</a></code>. In README, prefer static plots for GitHub rendering.</p>
+</blockquote>
+</div>
+</div>
+<div class="section level2">
+<h2 id="main-functions">Main functions<a class="anchor" aria-label="anchor" href="#main-functions"></a>
+</h2>
+<ul>
+<li>
+<strong>Triangle utilities:</strong> <code><a href="reference/create_triangle.html">create_triangle()</a></code>, <code><a href="reference/create_cumulative_triangle.html">create_cumulative_triangle()</a></code>, <code><a href="reference/create_decumulative_triangle.html">create_decumulative_triangle()</a></code>, <code><a href="reference/triangle_namer.html">triangle_namer()</a></code>, <code><a href="reference/diag_reader.html">diag_reader()</a></code>, <code><a href="reference/diag_writer.html">diag_writer()</a></code>, <code><a href="reference/diag_sums.html">diag_sums()</a></code>.</li>
+<li>
+<strong>CH-L workflow:</strong> <code><a href="reference/create_chl_coef_triangle.html">create_chl_coef_triangle()</a></code>, <code><a href="reference/create_chl_coefs.html">create_chl_coefs()</a></code>, <code><a href="reference/create_avg_coefs.html">create_avg_coefs()</a></code>, <code><a href="reference/create_product_coefs.html">create_product_coefs()</a></code>.</li>
+<li>
+<strong>Visualization:</strong> <code><a href="reference/create_chl_trg_visualization.html">create_chl_trg_visualization()</a></code>, <code><a href="reference/create_chl_trg_visualization_pvzp.html">create_chl_trg_visualization_pvzp()</a></code>.</li>
+</ul>
+</div>
+<div class="section level2">
+<h2 id="notes">Notes<a class="anchor" aria-label="anchor" href="#notes"></a>
+</h2>
+<ul>
+<li>Conventions: diagonal numbering uses <strong>1 = shortest</strong>, <strong>n = main</strong> (documented in <code><a href="reference/diag_reader.html">diag_reader()</a></code>).</li>
+<li>Examples use toy data; real-world usage typically works with monthly/quarterly origin &amp; development periods.</li>
+</ul>
+<!-- -->
+</div>
+</div>
+  </main><aside class="col-md-3"><div class="links">
+<h2 data-toc-skip>Links</h2>
+<ul class="list-unstyled">
+<li><a href="https://github.com/&lt;USERNAME&gt;/vitopack/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/&lt;USERNAME&gt;/vitopack/issues" class="external-link">Report a bug</a></li>
+</ul>
+</div>
+
+<div class="license">
 <h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>

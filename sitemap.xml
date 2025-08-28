@@ -4,10 +4,21 @@
 <url><loc>https://ondrej-vit.github.io/vitopack/LICENSE.html</loc></url>
 <url><loc>https://ondrej-vit.github.io/vitopack/authors.html</loc></url>
 <url><loc>https://ondrej-vit.github.io/vitopack/index.html</loc></url>
+<url><loc>https://ondrej-vit.github.io/vitopack/reference/create_annual_triangle.html</loc></url>
+<url><loc>https://ondrej-vit.github.io/vitopack/reference/create_avg_coefs.html</loc></url>
+<url><loc>https://ondrej-vit.github.io/vitopack/reference/create_chl_coef_triangle.html</loc></url>
+<url><loc>https://ondrej-vit.github.io/vitopack/reference/create_chl_coefs.html</loc></url>
+<url><loc>https://ondrej-vit.github.io/vitopack/reference/create_chl_trg_visualization.html</loc></url>
+<url><loc>https://ondrej-vit.github.io/vitopack/reference/create_chl_trg_visualization_pvzp.html</loc></url>
 <url><loc>https://ondrej-vit.github.io/vitopack/reference/create_cumulative_triangle.html</loc></url>
 <url><loc>https://ondrej-vit.github.io/vitopack/reference/create_decumulative_triangle.html</loc></url>
+<url><loc>https://ondrej-vit.github.io/vitopack/reference/create_product_coefs.html</loc></url>
+<url><loc>https://ondrej-vit.github.io/vitopack/reference/create_run_off_check.html</loc></url>
 <url><loc>https://ondrej-vit.github.io/vitopack/reference/create_triangle.html</loc></url>
 <url><loc>https://ondrej-vit.github.io/vitopack/reference/diag_reader.html</loc></url>
+<url><loc>https://ondrej-vit.github.io/vitopack/reference/diag_sums.html</loc></url>
+<url><loc>https://ondrej-vit.github.io/vitopack/reference/diag_writer.html</loc></url>
 <url><loc>https://ondrej-vit.github.io/vitopack/reference/index.html</loc></url>
+<url><loc>https://ondrej-vit.github.io/vitopack/reference/triangle_namer.html</loc></url>
 </urlset>
 
